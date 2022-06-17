@@ -14,19 +14,19 @@ const useStyles= makeStyles(()=>({
 }))
 
 const CustomSelect = (props) => {
-    console.log(toJS(props.company))
-
     const classes=useStyles();
     const [value, setValue] = React.useState('');
-    const handleSelect = (event) => {
+    const handleOnChange = (event) => {
         setValue(event.target.value);
+        props.handlechangeSelect(event.target.value)
+      
       };
     return (
         <Select
     
         displayEmpty
         value={value}
-        onChange={handleSelect}
+        onChange={handleOnChange}
         input={<OutlinedInput />}
 
         className={classes.input}

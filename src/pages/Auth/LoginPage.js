@@ -94,11 +94,12 @@ const LoginPage = (props) => {
         showPassword: false,
     });
     const [hiddenSelect, setHiddenSelect] = useState();
+    const [selectCompany, setSelectCompany] = useState();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(validationSchema)
     });
     const company = useContext(userContext);
-    console.log(toJS(company.company))
+
     //======================hidden show password==================//
     const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
@@ -108,19 +109,29 @@ const LoginPage = (props) => {
     };
     //======================= handle Submit form login ==============// 
     const onSubmit = data => {
-        console.log(data)
+        data.saleOrg = toJS(company.saleCode)[0].saleOrgCode;
+        data.companyCode = selectCompany;
+      
+        company.login(data);
+
+
     };
     const onchangeUserName = e => {
         if (e.target.value) {
-            setHiddenSelect(e.target.value)    
+            setHiddenSelect(e.target.value)
         }
     };
+
     useEffect(() => {
         company.getCompany(hiddenSelect)
+
     }, [hiddenSelect]);
-    
-    const handlechangeSelect = () => {
-        console.log('dd')
+
+    useEffect(() => {
+        company.saleORG(hiddenSelect, selectCompany)
+    }, [hiddenSelect, selectCompany]);
+    const handlechangeSelect = (e) => {
+        setSelectCompany(e)
     };
     return (
         <div className={classes.backgroundLogin}>
@@ -184,7 +195,7 @@ const LoginPage = (props) => {
                                             </Typography>
                                             <CustomSelect names={names} company={company.company}
                                                 // selectData={selectData}
-                                                handleOnChange={handlechangeSelect} />
+                                                handlechangeSelect={handlechangeSelect} />
                                         </FormControl>
                                     </Grid> : ''
                             }

@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
 import { UserProvider } from 'store/store'
 import {Login} from "pages/Auth/LoginPage";
+import {DashboardPage} from 'pages/Dashboard/DashboardPage'
 function App() {
 
   return (
@@ -12,6 +13,12 @@ function App() {
             <UserProvider >
               <Login />
           </UserProvider>  
+               
+          } />
+        </Route>
+        <Route path="Dashboard" >
+          <Route path="index" element={
+          <DashboardPage/> 
                
           } />
         </Route>
