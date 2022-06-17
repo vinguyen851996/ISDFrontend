@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
     async getCompany(username) {
       try {
         const {data}= await services.companyList(username);
-        console.log(data);
+      
         store.company = data;
       } catch (e) {
         store.setError(e);

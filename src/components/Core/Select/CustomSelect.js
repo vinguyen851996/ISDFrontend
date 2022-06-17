@@ -14,7 +14,8 @@ const useStyles= makeStyles(()=>({
 }))
 
 const CustomSelect = (props) => {
-  console.log(toJS(props.company))
+    console.log(toJS(props.company))
+
     const classes=useStyles();
     const [value, setValue] = React.useState('');
     const handleSelect = (event) => {
@@ -34,7 +35,9 @@ const CustomSelect = (props) => {
         <MenuItem disabled value="">
           <em>Placeholder</em>
         </MenuItem>
-        {toJS(props.company).map((name) => 
+        {
+       toJS(props.company) !== false ? 
+        toJS(props.company).map((name) => 
         (
           <MenuItem
             key={name.companyCode}
@@ -43,7 +46,8 @@ const CustomSelect = (props) => {
           >
             {name.companyName}
           </MenuItem>
-        ))}
+        )):''
+      }
       </Select>
     );
 };

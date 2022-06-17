@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { observer, Observer } from 'mobx-react'
 import * as Yup from 'yup';
 import { useForm } from "react-hook-form";
@@ -87,7 +87,7 @@ const validationSchema = Yup.object().shape({
         .max(16, 'Mật khẩu tối đa 16 ký tự')
 });
 const LoginPage = (props) => {
-  
+
     const classes = useStyles();
     const [values, setValues] = React.useState({
         password: '',
@@ -108,102 +108,111 @@ const LoginPage = (props) => {
     };
     //======================= handle Submit form login ==============// 
     const onSubmit = data => {
+        console.log(data)
     };
     const onchangeUserName = e => {
         if (e.target.value) {
-            setHiddenSelect(e.target.value)
-            company.getCompany(e.target.value)
+            setHiddenSelect(e.target.value)    
         }
-    }
+    };
+    useEffect(() => {
+        company.getCompany(hiddenSelect)
+    }, [hiddenSelect]);
+    
+    const handlechangeSelect = () => {
+        console.log('dd')
+    };
     return (
-             <div className={classes.backgroundLogin}>
-                        <div className={classes.paperForm}  >
-                            <Paper className={classes.sizePaper} >
-                                <img
-                                    className={classes.img}
-                                    src={logo}
-                                    alt="logo"
-                                />
-                                <br />
-                                <Typography className={classes.title}>Đăng Nhập</Typography>
-                                <form   onSubmit={handleSubmit(onSubmit)} >
-                                    <Grid container spacing={4}>
-                                        <Grid item md={12} xs={12}>
-                                            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                                                <Typography className={classes.label}>
-                                                userName
-                                                </Typography>
-                                                <OutlinedInput
-                                                    {...register('userName')}
-                                                    className={classes.input}
-                                                    placeholder="userName"
-                                                    onChange={(e)=>onchangeUserName(e)}
-                                                />
-                                            </FormControl>
-                                        </Grid>
-                                        <Grid item md={12} xs={12}>
-                                            <FormControl variant="outlined">
-                                                <Typography className={classes.label}>
-                                                    Mật khẩu
-                                                </Typography>
-                                                <OutlinedInput
-                                                      {...register('password')}
-                                                    className={classes.input}
-                                                    placeholder="Mật khẩu"
-                                                    type={values.showPassword ? 'text' : 'password'}
-                                                    endAdornment={
-                                                        <InputAdornment position="end">
-                                                            <IconButton
-                                                                aria-label="toggle password visibility"
-                                                                onClick={handleClickShowPassword}
-                                                                onMouseDown={handleMouseDownPassword}
-                                                                edge="end"
-                                                                className={classes.IconButton}
-                                                            >
-                                                                {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                                                            </IconButton>
-                                                        </InputAdornment>
-                                                    }
-                                                />
-
-                                            </FormControl>
-                                        </Grid>
-                                        {
-                                            hiddenSelect?
-                                               <Grid item md={12} xs={12}>
-                                            <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
-                                                <Typography className={classes.label}>
-                                                    Công ty
-                                                </Typography>
-                                                <CustomSelect names={names} company={company.company}/>
-                                            </FormControl>
-                                        </Grid>:''
+        <div className={classes.backgroundLogin}>
+            <div className={classes.paperForm}  >
+                <Paper className={classes.sizePaper} >
+                    <img
+                        className={classes.img}
+                        src={logo}
+                        alt="logo"
+                    />
+                    <br />
+                    <Typography className={classes.title}>Đăng Nhập</Typography>
+                    <form onSubmit={handleSubmit(onSubmit)} >
+                        <Grid container spacing={4}>
+                            <Grid item md={12} xs={12}>
+                                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                                    <Typography className={classes.label}>
+                                        userName
+                                    </Typography>
+                                    <OutlinedInput
+                                        {...register('userName')}
+                                        className={classes.input}
+                                        placeholder="userName"
+                                        onChange={(e) => onchangeUserName(e)}
+                                    />
+                                </FormControl>
+                            </Grid>
+                            <Grid item md={12} xs={12}>
+                                <FormControl variant="outlined">
+                                    <Typography className={classes.label}>
+                                        Mật khẩu
+                                    </Typography>
+                                    <OutlinedInput
+                                        {...register('password')}
+                                        className={classes.input}
+                                        placeholder="Mật khẩu"
+                                        type={values.showPassword ? 'text' : 'password'}
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}
+                                                    edge="end"
+                                                    className={classes.IconButton}
+                                                >
+                                                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                                                </IconButton>
+                                            </InputAdornment>
                                         }
-                                      
-                                        <Grid item md={12} xs={12}>
-                                            <Typography >
-                                                <a style={{
-                                                    cursor: 'pointer',
-                                                    textDecoration: 'none',
-                                                    color: '#0b6aaf'
-                                                }}
-                                                //   onClick={() => history.push('/reset-password')}
-                                                >Quên mật khẩu?
-                                                </a>
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item md={12} xs={12}>
-                                            <Button type="submit" fullWidth variant="contained" className={classes.button}>ĐĂNG NHẬP</Button>
-                                        </Grid>
-                                    </Grid>
-                                </form>
-                            </Paper>
+                                    />
 
-                        </div>
-                    </div>
+                                </FormControl>
+                            </Grid>
+                            {
+                                hiddenSelect ?
+                                    <Grid item md={12} xs={12}>
+                                        <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
+                                            <Typography className={classes.label}>
+                                                Công ty
+                                            </Typography>
+                                            <CustomSelect names={names} company={company.company}
+                                                // selectData={selectData}
+                                                handleOnChange={handlechangeSelect} />
+                                        </FormControl>
+                                    </Grid> : ''
+                            }
+
+                            <Grid item md={12} xs={12}>
+                                <Typography >
+                                    <a style={{
+                                        cursor: 'pointer',
+                                        textDecoration: 'none',
+                                        color: '#0b6aaf'
+                                    }}
+                                    //   onClick={() => history.push('/reset-password')}
+                                    >Quên mật khẩu?
+                                    </a>
+                                </Typography>
+                            </Grid>
+                            <Grid item md={12} xs={12}>
+                                <Button type="submit" fullWidth variant="contained" className={classes.button}>ĐĂNG NHẬP</Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </Paper>
+
+            </div>
+        </div>
     )
-    ;
+        ;
 };
 
 const Login = observer(LoginPage);
-export {Login}
+export { Login }
