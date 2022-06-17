@@ -115,7 +115,6 @@ const LoginPage = (props) => {
             company.getCompany(e.target.value)
         }
     }
- 
     return (
              <div className={classes.backgroundLogin}>
                         <div className={classes.paperForm}  >
