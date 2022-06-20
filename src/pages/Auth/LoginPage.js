@@ -20,20 +20,20 @@ const useStyles = makeStyles((theme) => ({
 
     },
     paperForm: {
-        paddingTop: '10px',
-        paddingBottom: '30px',
+        paddingTop: '1px',
+        paddingBottom: '2px',
 
 
     },
     sizePaper: {
-        width: '495px',
-        height: '597px',
+        width: '595px',
+        height: '740px',
         padding: '50px 80px 70px 80px',
         margin: '100px auto',
     },
     input: {
         borderRadius: '48px',
-        width: '495px',
+        width: '435px',
         background: '#F7FAFB',
     },
     img: {

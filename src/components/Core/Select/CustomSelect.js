@@ -8,7 +8,7 @@ import {Select,MenuItem,OutlinedInput } from '@material-ui/core';
 const useStyles= makeStyles(()=>({
     input: {
         borderRadius: '48px',
-        width: '495px',
+        width: '435px',
         background: '#F7FAFB',
     },
 }))

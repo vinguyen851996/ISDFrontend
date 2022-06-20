@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
           // console.log(data)
           const result = await services.login(data);
           console.log(result);
-          navigate("Dashboard/index", { replace: true });
+          navigate("../../Dashboard/index", { replace: true });
        
         } catch (e) {
         }
