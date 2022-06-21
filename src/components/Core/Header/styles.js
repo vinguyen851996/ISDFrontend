@@ -5,6 +5,10 @@ export default makeStyles((theme) => ({
   buttonSelect: {
     color: "#fff",
     textTransform: "none",
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: alpha(theme.palette.common.black, 0.08),
+    },
   },
   imgLogo: {
     width: "50px",
@@ -103,7 +107,7 @@ export default makeStyles((theme) => ({
     },
   },
   headerMenuButton: {
-    marginLeft: theme.spacing(2),
+    // marginLeft: theme.spacing(2),
     padding: theme.spacing(0.5),
   },
   headerMenuButtonSandwich: {
@@ -119,6 +123,10 @@ export default makeStyles((theme) => ({
   headerIcon: {
     fontSize: 28,
     color: "rgba(255, 255, 255, 0.35)",
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: alpha(theme.palette.common.black, 0.08),
+    },
   },
   headerIconCollapse: {
     color: "white",
@@ -128,7 +136,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
   },
   nofitication: {
-    padding: "0 20px",
+    padding: "0 10px",
     "&:hover": {
       cursor: "pointer",
       backgroundColor: alpha(theme.palette.common.black, 0.08),
@@ -165,7 +173,7 @@ export default makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     color: theme.palette.text.hint,
     "&:hover": {
-      color: theme.palette.primary.main,
+      backgroundColor: alpha(theme.palette.common.black, 0.08),
     },
   },
   profileMenuLink: {
@@ -180,7 +188,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     "&:hover, &:focus": {
-      backgroundColor: theme.palette.background.light,
+      backgroundColor: alpha(theme.palette.common.black, 0.08),
     },
   },
   messageNotificationSide: {
@@ -214,3 +222,8 @@ export default makeStyles((theme) => ({
     },
   },
 }));
+
+// "&:hover": {
+//   cursor: "pointer",
+//   backgroundColor: alpha(theme.palette.common.black, 0.08),
+// },

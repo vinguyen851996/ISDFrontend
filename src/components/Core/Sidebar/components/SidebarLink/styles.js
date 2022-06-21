@@ -1,44 +1,41 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
+import { alpha } from "@mui/material/styles";
 
 export default makeStyles((theme) => ({
   link: {
-    textDecoration: 'none',
-    '&:hover, &:focus': {
-      backgroundColor: '#1e282c',
-      '& > .MuiSvgIcon-root': {
-        display: 'inline-block',
-      
+    textDecoration: "none",
+    "&:hover, &:focus": {
+      backgroundColor: "#1e282c",
+      "& > .MuiSvgIcon-root": {
+        display: "inline-block",
       },
     },
-    '&.Mui-focusVisible': {
-      backgroundColor: 'transparent',
- 
+    "&.Mui-focusVisible": {
+      backgroundColor: theme.palette.common.black,
     },
   },
   linkActive: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: alpha(theme.palette.common.black, 0.08),
   },
-  linkNested: {
-    paddingLeft: 25,
-    '&:hover, &:focus': {
-      backgroundColor: '#1e282c',
-    },
-  },
+  // linkNested: {
+  //   paddingLeft: 25,
+  //   "&:hover, &:focus": {
+  //     backgroundColor: "#1e282c",
+  //   },
+  // },
   linkIcon: {
     // marginRight: theme.spacing(1),
-    '& > .MuiSvgIcon-root': {
-      display: 'inline-block',
-      fill: '#fff'
+    "& > .MuiSvgIcon-root": {
+      display: "inline-block",
+      fill: "#fff",
     },
     color:
-      theme.palette.type === 'dark'
-        ? '#616168 !important'
-        : theme.palette.text.secondary + '99',
-    transition: theme.transitions.create('color'),
-    display: 'flex',
-    justifyContent: 'center',
-
-
+      theme.palette.type === "dark"
+        ? "#616168 !important"
+        : theme.palette.text.secondary + "99",
+    transition: theme.transitions.create("color"),
+    display: "flex",
+    justifyContent: "center",
   },
   linkIconActive: {
     color: `${theme.palette.primary.main} !important`,
@@ -46,12 +43,12 @@ export default makeStyles((theme) => ({
   linkText: {
     padding: 0,
     color:
-      theme.palette.type === 'dark'
-        ? '#D6D6D6 !important'
-        : theme.palette.text.secondary + 'CC',
-    transition: theme.transitions.create(['opacity', 'color']),
+      theme.palette.type === "dark"
+        ? "#D6D6D6 !important"
+        : theme.palette.text.secondary + "CC",
+    transition: theme.transitions.create(["opacity", "color"]),
     fontSize: 14,
-    color:'#fff'
+    color: "#fff",
   },
   linkTextActive: {
     color: theme.palette.text.primary,
@@ -72,16 +69,16 @@ export default makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     height: 1,
     backgroundColor:
-      theme.palette.type === 'dark' ? 'rgba(151,151,151, .15)' : '#D8D8D880',
+      theme.palette.type === "dark" ? "rgba(151,151,151, .15)" : "#D8D8D880",
   },
   expand: {
-    transform: 'rotate(180deg)',
+    transform: "rotate(180deg)",
   },
   expandWrapper: {
-    color: theme.palette.text.secondary + '99',
-    transition: theme.transitions.create('transform'),
-    display: (props) => (props ? 'inline-flex' : 'none'),
-    marginLeft: 'auto',
+    color: theme.palette.text.secondary + "99",
+    transition: theme.transitions.create("transform"),
+    display: (props) => (props ? "inline-flex" : "none"),
+    marginLeft: "auto",
   },
   nestedMenu: {
     paddingLeft: 0,

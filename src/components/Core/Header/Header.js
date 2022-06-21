@@ -184,7 +184,7 @@ export default function Header(props) {
             </IconButton>
           </div>
           <div className={classes.nofitication}>
-            <NotificationsIcon />
+            <NotificationsIcon style={{ marginTop: "10px" }} />
           </div>
           <div className={classes.menuProfile}>
             <IconButton
