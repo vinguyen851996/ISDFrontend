@@ -16,12 +16,10 @@ function App() {
                
           } />
         </Route>
-        <Route path="Dashboard" >
-          <Route path="index" element={
-          <DashboardPage/> 
-               
-          } />
-        </Route>
+        <Route path="dashboard/*" element={<DashboardPage />} />
+        {/* <Route path="dashboard" >
+          <Route path="index" element={<DashboardPage/> } />
+        </Route> */}
         <Route index element={<Navigate to="auth/login" replace />} />
       </Routes>
     </BrowserRouter>

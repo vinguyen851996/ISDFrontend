@@ -5,51 +5,36 @@ import Header from 'components/Core/Header/Header';
 import Sidebar from 'components/Core/Sidebar/Sidebar';
 import structure from 'components/Core/Sidebar/SidebarStructure';
 import { Route, Routes } from 'react-router-dom';
-
+import { makeStyles } from '@material-ui/core';
+const useStyles = makeStyles(()=>({
+  content:{
+    margin:'60px 0px 0px 140px'
+  }
+}))
 export const DashboardPage = () => {
+  const classes=useStyles();
+
     const Home = () => {
         return (
-          <div>
+          <div >
             <h1>Home</h1>
           </div>
         );
-      };
-      
-      const About = () => {
-        return (
-          <div>
-            <h1>About</h1>
-          </div>
-        );
-      };
-      const Blog = () => {
-        return (
-          <div>
-            <h1>Blog</h1>
-          </div>
-        );
-      };
-      const Contact = () => {
-        return (
-          <div>
-            <h1>Contact Us</h1>
-          </div>
-        );
-      };
-      
-      
+      };  
     return (
         <div>
             <Header />
             <Sidebar structure={structure} />
 
             <Footer />
-
-            {/* <Routes>
-                <Route path='/app/dashboard' element={Home} />
-                <Route path="/app/profile" element={About} />
+           <div className={classes.content}>
+           <Routes>
+                <Route path="home" element={<Home/>} />
+                <Route path="profile" element={'profile'} />
                
-            </Routes> */}
+            </Routes>
+           </div>
+         
         </div>
     );
 };
