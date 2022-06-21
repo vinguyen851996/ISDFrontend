@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import { Drawer, IconButton, List } from '@mui/material';
 import { useTheme } from '@mui/material';
-import { withRouter } from 'react-router-dom';
+import { withRouter,Router } from 'react-router-dom';
 import classNames from 'classnames';
 // import { withRouter } from 'react-router-dom';
 // styles
@@ -40,7 +40,7 @@ function Sidebar({ location, structure }) {
   // global
   let {isSidebarOpened} = useLayoutState().state;
   let layoutDispatch = useLayoutDispatch();
-    console.log( isSidebarOpened, useLayoutState())
+  
   // local
   let [isPermanent, setPermanent] = useState(true);
 
@@ -88,6 +88,7 @@ function Sidebar({ location, structure }) {
         className={classes.sidebarList}
         classes={{ padding: classes.padding }}
       >
+   
         {structure.map(link => (
           <SidebarLink
             key={link.id}
@@ -97,6 +98,8 @@ function Sidebar({ location, structure }) {
             toggleDrawer={toggleDrawer(true)}
           />
         ))}
+     
+  
       </List>
     </Drawer>
   );

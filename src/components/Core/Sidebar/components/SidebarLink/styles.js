@@ -4,13 +4,15 @@ export default makeStyles((theme) => ({
   link: {
     textDecoration: 'none',
     '&:hover, &:focus': {
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: '#1e282c',
       '& > .MuiSvgIcon-root': {
         display: 'inline-block',
+      
       },
     },
     '&.Mui-focusVisible': {
       backgroundColor: 'transparent',
+ 
     },
   },
   linkActive: {
@@ -19,14 +21,15 @@ export default makeStyles((theme) => ({
   linkNested: {
     paddingLeft: 25,
     '&:hover, &:focus': {
-      backgroundColor:
-        theme.palette.type === 'dark'
-          ? theme.palette.background.light
-          : '#FFFFFF',
+      backgroundColor: '#1e282c',
     },
   },
   linkIcon: {
-    marginRight: theme.spacing(1),
+    // marginRight: theme.spacing(1),
+    '& > .MuiSvgIcon-root': {
+      display: 'inline-block',
+      fill: '#fff'
+    },
     color:
       theme.palette.type === 'dark'
         ? '#616168 !important'
@@ -34,7 +37,8 @@ export default makeStyles((theme) => ({
     transition: theme.transitions.create('color'),
     display: 'flex',
     justifyContent: 'center',
-    
+
+
   },
   linkIconActive: {
     color: `${theme.palette.primary.main} !important`,
@@ -47,6 +51,7 @@ export default makeStyles((theme) => ({
         : theme.palette.text.secondary + 'CC',
     transition: theme.transitions.create(['opacity', 'color']),
     fontSize: 14,
+    color:'#fff'
   },
   linkTextActive: {
     color: theme.palette.text.primary,

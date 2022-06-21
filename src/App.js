@@ -20,9 +20,7 @@ function App() {
           <Route path="index" element={
           <DashboardPage/> 
                
-          } 
-          
-          />
+          } />
         </Route>
         <Route index element={<Navigate to="auth/login" replace />} />
       </Routes>

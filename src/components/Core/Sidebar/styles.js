@@ -46,7 +46,7 @@ export default makeStyles((theme) => ({
   },
   sidebarList: {
     // marginTop: theme.spacing(1),
-    backgroundColor:'#1e282c'
+    backgroundColor:'#222d32'
   },
   mobileBackButton: {
     marginTop: theme.spacing(0.5),

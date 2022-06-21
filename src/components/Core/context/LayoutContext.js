@@ -4,7 +4,6 @@ let LayoutStateContext = React.createContext();
 let LayoutDispatchContext = React.createContext();
 
 function layoutReducer(state, action) {
-  console.log(state, action )
   switch (action.type) {
     case 'TOGGLE_SIDEBAR':
       return { ...state, isSidebarOpened: !state.isSidebarOpened };

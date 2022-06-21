@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Menu, MenuItem } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Menu, MenuItem,Fade,Button  } from '@mui/material';
 import { useTheme } from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {
   Menu as MenuIcon,
   Person as AccountIcon,
@@ -15,7 +16,7 @@ import classNames from 'classnames';
 
 // styles
 import useStyles from './styles';
-
+import logo from 'assets/img-01.png'
 // components
 import { Typography, Avatar } from '../Wrappers/Wrappers';
 
@@ -47,7 +48,14 @@ export default function Header(props) {
   const [profileMenu, setProfileMenu] = useState(null);
   const [currentUser, setCurrentUser] = useState();
   const [isSmall, setSmall] = useState(false);
- 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   // const managementValue = useManagementState();
 
   // useEffect(() => {
@@ -75,10 +83,16 @@ export default function Header(props) {
     let isSmallScreen = windowWidth < breakpointWidth;
     setSmall(isSmallScreen);
   }
-
+  console.log()
   return (
     <AppBar position='fixed' className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
+     
+  
+        {(!layoutState.state.isSidebarOpened && isSmall) ||
+          (layoutState.state.isSidebarOpened && !isSmall) ? <Typography variant='h6' weight='medium' className={classes.logotype}>
+          iCRM System
+        </Typography>:   <img src={logo} className={classes.imgLogo}/>}
         <IconButton
           color='inherit'
           onClick={() => toggleSidebar(layoutDispatch)}
@@ -87,9 +101,7 @@ export default function Header(props) {
             classes.headerMenuButtonCollapse,
           )}
         >
-          {(!layoutState.isSidebarOpened && isSmall) ||
-          (layoutState.isSidebarOpened && !isSmall) ? (
-            <ArrowBackIcon
+        <MenuIcon
               classes={{
                 root: classNames(
                   classes.headerIcon,
@@ -97,20 +109,34 @@ export default function Header(props) {
                 ),
               }}
             />
-          ) : (
-            <MenuIcon
-              classes={{
-                root: classNames(
-                  classes.headerIcon,
-                  classes.headerIconCollapse,
-                ),
-              }}
-            />
-          )}
         </IconButton>
-        <Typography variant='h6' weight='medium' className={classes.logotype}>
-          React Material Admin Full
-        </Typography>
+        
+      <Button
+        id="fade-button"
+        aria-controls={open ? 'fade-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+        endIcon={<KeyboardArrowDownIcon />}
+        className={classes.buttonSelect}
+      >
+       Chọn
+      </Button>
+      <Menu
+        id="fade-menu"
+        MenuListProps={{
+          'aria-labelledby': 'fade-button',
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Fade}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
+    
         <div className={classes.grow} />
         <IconButton
           aria-haspopup='true'

@@ -2,9 +2,17 @@ import { makeStyles } from '@mui/styles';
 import { alpha } from '@mui/material/styles';
 
 export default makeStyles((theme) => ({
+  buttonSelect:{
+  color:'#fff',
+  textTransform: "none"
+  },
+  imgLogo:{
+    width:'50px',
+    height:'50px'
+  },
   logotype: {
     color: 'white',
-    marginLeft: theme.spacing(2.5),
+    marginLeft: theme.spacing(4.5),
     marginRight: theme.spacing(2.5),
     fontWeight: 500,
     fontSize: 18,
@@ -12,6 +20,7 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
+    width:'140px'
   },
   appBar: {
     width: '100%',
