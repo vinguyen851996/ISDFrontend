@@ -4,15 +4,20 @@ import * as services from "./service";
 import { useNavigate } from "react-router-dom";
 
 export const UserProvider = ({ children }) => {
+  let user = {};
+  if (localStorage.getItem("user_login")) {
+    user = JSON.parse(localStorage.getItem("user_login"));
+  }
+
   let navigate = useNavigate();
   const store = useLocalObservable(() => ({
     company: [],
     saleCode: [],
+    userLogin: user,
 
     async getCompany(username) {
       try {
         const { data } = await services.companyList(username);
-
         store.company = data;
       } catch (e) {
         // store.setError(e);
@@ -25,6 +30,7 @@ export const UserProvider = ({ children }) => {
         const result = await services.login(data);
         console.log(result);
         localStorage.setItem("user_session", JSON.stringify(result.data.token));
+        localStorage.setItem("user_login", JSON.stringify(result));
         navigate("../../Dashboard/index", { replace: true });
       } catch (e) {}
     },

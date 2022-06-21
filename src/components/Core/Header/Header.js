@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   AppBar,
@@ -47,22 +47,27 @@ import {
 
 // import { actions } from '../../context/ManagementContext';
 import { useUserDispatch, signOut } from "../context/UserContext";
+import { userContext } from "store/store";
+import { observer } from "mobx-react";
+import { toJS } from "mobx";
 
-export default function Header(props) {
+const HeaderComponent = (props) => {
   let classes = useStyles();
   let theme = useTheme();
 
   // global
   let layoutState = useLayoutState();
   let layoutDispatch = useLayoutDispatch();
-  let userDispatch = useUserDispatch();
+  let { userLogin } = useContext(userContext);
+  console.log(toJS(userLogin.data.permission.menuModel));
+
   // const managementDispatch = useManagementDispatch();
 
   // local
   const [profileMenu, setProfileMenu] = useState(null);
   const [currentUser, setCurrentUser] = useState();
   const [isSmall, setSmall] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -145,9 +150,18 @@ export default function Header(props) {
           onClose={handleClose}
           TransitionComponent={Fade}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          {/* {userLogin.map((item, index) => (
+            <Menu key={index}>{item}</Menu>
+          ))} */}
+          {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
           <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
+          <MenuItem onClick={handleClose}>Logout</MenuItem> */}
+          {userLogin.data.permission.menuModel.map((item, index) => (
+            <MenuItem onClick={handleClose} key={index}>
+              <i className={item.icon}></i>
+              {item.menuName}
+            </MenuItem>
+          ))}
         </Menu>
 
         {/* <div className={classes.grow} />
@@ -180,7 +194,10 @@ export default function Header(props) {
               aria-controls="profile-menu"
             >
               <AccountCircleIcon />
-              <span style={{ fontSize: "15px" }}>SysAdmin</span>
+              <span style={{ fontSize: "15px" }}>
+                {" "}
+                {userLogin.data.userName}
+              </span>
             </IconButton>
           </div>
           <div className={classes.nofitication}>
@@ -195,7 +212,9 @@ export default function Header(props) {
               onClick={(e) => setProfileMenu(e.currentTarget)}
             >
               <PersonIcon />
-              <span style={{ fontSize: "15px" }}>(sysadmin)</span>
+              <span style={{ fontSize: "15px" }}>
+                {userLogin.data.userName}
+              </span>
               <ArrowDropDownIcon
                 alt={currentUser?.firstName}
                 // eslint-disable-next-line no-mixed-operators
@@ -267,4 +286,7 @@ export default function Header(props) {
       </Toolbar>
     </AppBar>
   );
-}
+};
+
+const Header = observer(HeaderComponent);
+export { Header };

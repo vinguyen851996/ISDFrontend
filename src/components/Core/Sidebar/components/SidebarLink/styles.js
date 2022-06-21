@@ -16,6 +16,7 @@ export default makeStyles((theme) => ({
   },
   linkActive: {
     backgroundColor: alpha(theme.palette.common.black, 0.08),
+    color: "#fff",
   },
   // linkNested: {
   //   paddingLeft: 25,
@@ -51,7 +52,7 @@ export default makeStyles((theme) => ({
     color: "#fff",
   },
   linkTextActive: {
-    color: theme.palette.text.primary,
+    color: "#fff",
   },
   linkTextHidden: {
     opacity: 0,
