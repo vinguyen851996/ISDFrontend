@@ -6,14 +6,38 @@ import Sidebar from 'components/Core/Sidebar/Sidebar';
 import structure from 'components/Core/Sidebar/SidebarStructure';
 import { Route, Routes } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
-const useStyles = makeStyles(()=>({
-  content:{
-    margin:'60px 0px 0px 140px'
-  }
+import classnames from 'classnames';
+import { useLayoutState } from 'components/Core/context/LayoutContext';
+const useStyles = makeStyles((theme)=>({
+  root: {
+    display: 'flex',
+    maxWidth: '100vw',
+    overflowX: 'hidden',
+  },
+  content: {
+    position: 'relative',
+    flexGrow: 1,
+    margin: '0px 35px 0px 35px',
+    width: `calc(100vw - 240px)`,
+    minHeight: '100vh',
+    paddingBottom: 70,
+  },
+  contentShift: {
+    width: `calc(100vw - (240px + ${theme.spacing(8)}))`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  fakeToolbar: {
+    ...theme.mixins.toolbar,
+    marginTop: 25,
+  },
 }))
 export const DashboardPage = () => {
   const classes=useStyles();
-
+  let layoutState = useLayoutState().state;
+  console.log(layoutState )
     const Home = () => {
         return (
           <div >
@@ -22,19 +46,22 @@ export const DashboardPage = () => {
         );
       };  
     return (
-        <div>
+        <div className={classes.root}>
             <Header />
             <Sidebar structure={structure} />
 
-            <Footer />
-           <div className={classes.content}>
+            
+           <div className={classnames(classes.content, {
+          [classes.contentShift]: layoutState.isSidebarOpened,
+        })}>
+           <div className={classes.fakeToolbar} />
            <Routes>
                 <Route path="home" element={<Home/>} />
                 <Route path="profile" element={'profile'} />
                
             </Routes>
            </div>
-         
+           <Footer />
         </div>
     );
 };
