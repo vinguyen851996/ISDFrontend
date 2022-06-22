@@ -50,6 +50,7 @@ import { useUserDispatch, signOut } from "../context/UserContext";
 import { userContext } from "store/store";
 import { observer } from "mobx-react";
 import { toJS } from "mobx";
+import { NavLink } from "react-router-dom";
 
 const HeaderComponent = (props) => {
   let classes = useStyles();
@@ -108,11 +109,19 @@ const HeaderComponent = (props) => {
       <Toolbar className={classes.toolbar}>
         {(!layoutState.state.isSidebarOpened && isSmall) ||
         (layoutState.state.isSidebarOpened && !isSmall) ? (
-          <Typography variant="h6" weight="medium" className={classes.logotype}>
-            iCRM System
-          </Typography>
+          <NavLink to="/Dashboard" className={classes.logo}>
+            <Typography
+              variant="h6"
+              weight="medium"
+              className={classes.logotype}
+            >
+              iCRM System
+            </Typography>
+          </NavLink>
         ) : (
-          <img src={logo} className={classes.imgLogo} />
+          <NavLink to="/Dashboard">
+            <img src={logo} className={classes.imgLogo} />
+          </NavLink>
         )}
         <IconButton
           color="inherit"
@@ -158,7 +167,7 @@ const HeaderComponent = (props) => {
           <MenuItem onClick={handleClose}>Logout</MenuItem> */}
           {userLogin.data.permission.menuModel.map((item, index) => (
             <MenuItem onClick={handleClose} key={index}>
-              <i className={item.icon}></i>
+              {/* <i className={item.icon}></i> */}
               {item.menuName}
             </MenuItem>
           ))}

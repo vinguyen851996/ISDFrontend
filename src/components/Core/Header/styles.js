@@ -26,6 +26,14 @@ export default makeStyles((theme) => ({
     },
     width: "140px",
   },
+  logo: {
+    textDecoration: "none",
+    "&:hover": {
+      cursor: "pointer",
+      padding: "5px",
+      backgroundColor: alpha(theme.palette.common.black, 0.08),
+    },
+  },
   appBar: {
     width: "100%",
     zIndex: theme.zIndex.drawer + 1,

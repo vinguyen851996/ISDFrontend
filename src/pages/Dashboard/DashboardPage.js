@@ -57,8 +57,11 @@ export const DashboardPage = () => {
       >
         <div className={classes.fakeToolbar} />
         <Routes>
-          <Route path="home" element={<Home />} />
-          <Route path="profile" element={"profile"} />
+          {/* <Route path="home" element={<Home />} />
+          <Route path="profile" element={"profile"} /> */}
+          {structure.map((item, index) => (
+            <Route key={index} path={`/${item}`} element={`/${item}`} />
+          ))}
         </Routes>
       </div>
       <Footer />
