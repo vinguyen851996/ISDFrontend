@@ -1,40 +1,31 @@
-import React from "react";
-import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
-import { UserProvider } from "store/store";
-import { Login } from "pages/Auth/LoginPage";
-import Header from "components/Core/Header/Header";
-import { DashboardPage } from "pages/Dashboard/DashboardPage";
-function App() {
+import React,{ useEffect, useState, useContext } from "react";
+import { observer } from 'mobx-react'
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
+import { ProviderStore } from 'store/store'
+import {Login} from "pages/Auth/LoginPage";
+import {DashboardPage} from 'pages/Dashboard/DashboardPage';
+import { userContext } from "store/store";
+import { toJS } from "mobx";
+const AppPage = () =>{
+  const company = useContext(userContext);
+  console.log(toJS(useContext(userContext)))
   return (
-    <BrowserRouter>
+    <div>
       <Routes>
-        <Route path="auth">
-          <Route
-            path="login"
-            element={
-              <UserProvider>
-                <Login />
-              </UserProvider>
-            }
-          />
+        <Route path="auth" >
+          <Route path="login" element={      
+              <Login />                 
+          } />
         </Route>
-        <Route
-          path="dashboard/*"
-          element={
-            <UserProvider>
-              <DashboardPage />
-            </UserProvider>
-          }
-        >
-          <Route path="dashboard/*" element={<DashboardPage />} />
-          {/* <Route path="dashboard" >
-          <Route path="index" element={<DashboardPage/> } />
-        </Route> */}
-        </Route>
+        <Route path="dashboard/*" element={<DashboardPage />} />
+    
         <Route index element={<Navigate to="auth/login" replace />} />
       </Routes>
-    </BrowserRouter>
+    </div>
+
   );
 }
 
-export default App;
+// export default App;
+const App = observer(AppPage);
+export { App }

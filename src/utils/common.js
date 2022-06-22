@@ -5,6 +5,7 @@ import { getAccessToken, getRefreshToken, setToken, clearUserSession,  } from '.
 
 export const setAuthHeader = () => {
     const token = getAccessToken();
+   
     if (token) { 
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         addRefreshToken()
@@ -20,12 +21,15 @@ export const addRefreshToken = () => {
         
         return response
     },
+ 
         async error => {
+        
             const originalRequest = error.response.config;
+          
             if (error.response.status !== 401) {
                 return Promise.reject(error);
             }
-            if (error.response.status === 401 && originalRequest.url === `${BASE_API_URL}/management/auths/login`) {
+            if (error.response.status === 401 && originalRequest.url === `${BASE_API_URL}/Permission/Auth/RefreshToken`) {
                 clearUserSession();
                 // history.push('auth/login');
                 return Promise.reject(error);
@@ -38,6 +42,7 @@ export const addRefreshToken = () => {
             */
             // axios.interceptors.response.eject(interceptor);
             if (error.response.status === 401) {
+        
                 if (!isRefreshing) {
                     isRefreshing = true;
                     return await axios.post(`${BASE_API_URL}/Permission/Auth/RefreshToken`,
@@ -61,5 +66,6 @@ export const addRefreshToken = () => {
                 }
 
             }
+           
         });
 };

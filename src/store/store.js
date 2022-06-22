@@ -2,22 +2,17 @@ import React from "react";
 import { useLocalObservable } from "mobx-react-lite";
 import * as services from "./service";
 import { useNavigate } from "react-router-dom";
-
-export const UserProvider = ({ children }) => {
-  let user = {};
-  if (localStorage.getItem("user_login")) {
-    user = JSON.parse(localStorage.getItem("user_login"));
-  }
-
+import {setUserSession} from "../utils/localStorageHelper"
+export const ProviderStore = ({ children }) => {
   let navigate = useNavigate();
   const store = useLocalObservable(() => ({
     company: [],
     saleCode: [],
-    userLogin: user,
-
+    signInUser:{},
     async getCompany(username) {
       try {
         const { data } = await services.companyList(username);
+      
         store.company = data;
       } catch (e) {
         // store.setError(e);
@@ -26,11 +21,25 @@ export const UserProvider = ({ children }) => {
 
     async login(data) {
       try {
-        // console.log(data)
+       
         const result = await services.login(data);
-        console.log(result);
-        localStorage.setItem("user_session", JSON.stringify(result.data.token));
-        localStorage.setItem("user_login", JSON.stringify(result));
+        const userSession = {
+          accountId: result.data.accountId,
+          userName: result.data.userName,
+          companyCode: result.data.companyCode,
+          companyId: result.data.companyId,
+          companyName: result.data.companyName,
+          expiredTime: result.data.expiredTime,
+          saleOrg: result.data.saleOrg,
+          saleOrgName: result.data.saleOrgName,
+          validaty: result.data.validaty,
+          roles: result.data.roles,
+          role: result.data.role,
+          token: result.data.token,
+          refreshToken: result.data.refreshToken,
+      };
+      store.signInUser=userSession;
+      setUserSession(userSession);
         navigate("../../Dashboard/index", { replace: true });
       } catch (e) {}
     },
@@ -38,8 +47,8 @@ export const UserProvider = ({ children }) => {
     async saleORG(userName, companyCode) {
       try {
         const { data } = await services.saleORG(userName, companyCode);
-
         store.saleCode = data;
+    
       } catch (e) {}
     },
   }));

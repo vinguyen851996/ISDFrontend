@@ -8,12 +8,12 @@ export const get = async (
   shouldSetAuthHeader = true,
   shouldRemoveAuthHeader = false,
 ) => {
-  // if (shouldSetAuthHeader) {
-  //   setAuthHeader();
-  // }
-  // if (shouldRemoveAuthHeader) {
-  //   removeAuthHeader();
-  // }
+  if (shouldSetAuthHeader) {
+    setAuthHeader();
+  }
+  if (shouldRemoveAuthHeader) {
+    removeAuthHeader();
+  }
 
   return await axios.get(BASE_API_URL + '/' + url, params);
 };
@@ -24,12 +24,12 @@ export const post = async (
   shouldSetAuthHeader = true,
   shouldRemoveAuthHeader = false,
 ) => {
-  // if (shouldSetAuthHeader) {
-  //   setAuthHeader();
-  // }
-  // if (shouldRemoveAuthHeader) {
-  //   removeAuthHeader();
-  // }
+  if (shouldSetAuthHeader) {
+    setAuthHeader();
+  }
+  if (shouldRemoveAuthHeader) {
+    removeAuthHeader();
+  }
   return await axios.post(BASE_API_URL + '/' + url, params);
 };
 

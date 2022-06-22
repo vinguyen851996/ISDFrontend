@@ -59,8 +59,8 @@ const HeaderComponent = (props) => {
   // global
   let layoutState = useLayoutState();
   let layoutDispatch = useLayoutDispatch();
-  let { userLogin } = useContext(userContext);
-  console.log(toJS(userLogin.data.permission.menuModel));
+  // let { userLogin } = useContext(userContext);
+  // console.log(toJS(userLogin.data.permission.menuModel));
 
   // const managementDispatch = useManagementDispatch();
 
@@ -165,12 +165,14 @@ const HeaderComponent = (props) => {
           {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
           <MenuItem onClick={handleClose}>My account</MenuItem>
           <MenuItem onClick={handleClose}>Logout</MenuItem> */}
-          {userLogin.data.permission.menuModel.map((item, index) => (
+
+          {/* {userLogin.data.permission.menuModel.map((item, index) => (
             <MenuItem onClick={handleClose} key={index}>
-              {/* <i className={item.icon}></i> */}
+              <i className={item.icon}></i>
               {item.menuName}
             </MenuItem>
-          ))}
+          ))} */}
+          
         </Menu>
 
         {/* <div className={classes.grow} />
@@ -205,7 +207,7 @@ const HeaderComponent = (props) => {
               <AccountCircleIcon />
               <span style={{ fontSize: "15px" }}>
                 {" "}
-                {userLogin.data.userName}
+                {/* {userLogin.data.userName} */}
               </span>
             </IconButton>
           </div>
@@ -222,7 +224,7 @@ const HeaderComponent = (props) => {
             >
               <PersonIcon />
               <span style={{ fontSize: "15px" }}>
-                {userLogin.data.userName}
+                {/* {userLogin.data.userName} */}
               </span>
               <ArrowDropDownIcon
                 alt={currentUser?.firstName}
