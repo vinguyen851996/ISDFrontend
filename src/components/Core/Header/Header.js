@@ -62,7 +62,7 @@ const HeaderComponent = () => {
   let layoutState = useLayoutState();
   let layoutDispatch = useLayoutDispatch();
   let userLogin = useContext(userContext);
-  console.log(toJS(userLogin));
+  // console.log(toJS(userLogin));
   // const signInUser = useContext(userContext);
 
   // const managementDispatch = useManagementDispatch();
@@ -183,7 +183,9 @@ const HeaderComponent = () => {
             ? userLogin.userLogin.webPermission.menuModel.map((item, index) => (
                 <MenuItem onClick={handleClose} key={index}>
                   <i className={item.icon}></i>
-                  {item.menuName}
+                  <Typography className={classes.headerSection}>
+                    {item.menuName}
+                  </Typography>
                 </MenuItem>
               ))
             : ""}

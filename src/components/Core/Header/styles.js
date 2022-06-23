@@ -46,6 +46,9 @@ export default makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
+  headerSection: {
+    marginLeft: "15px",
+  },
   toolbar: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
