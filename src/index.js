@@ -16,6 +16,9 @@ import {
 } from './components/Core/context/ThemeContext';
 import { ProviderStore } from 'store/store';
 import CssBaseline from '@mui/material/CssBaseline';
+import { MaintainSession } from './utils/common';
+
+MaintainSession();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

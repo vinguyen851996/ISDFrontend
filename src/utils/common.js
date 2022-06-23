@@ -1,8 +1,43 @@
-import { useState,useEffect } from "react";
+import React ,{ useState,useEffect } from "react";
+import { history } from "../App"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from 'jwt-decode';
 import { BASE_API_URL } from './config';
 import { getAccessToken, getRefreshToken, setToken, clearUserSession,  } from './localStorageHelper';
 
+export const MaintainSession = () => {
+    const token = getAccessToken();//get info token 
+    const currentPath = window.location.pathname;
+  
+    if (token) { //check token tồn tại hay không nếu có thì trả về trang chủ không thì trang login
+
+        if (currentPath === '/' || currentPath === '/auth/login') {   
+            history.push('/Dashboard/index')
+            // navigate("../../Dashboard/index", { replace: true });        
+         
+        }
+        // const decode = jwt_decode(token);
+      
+        // updateStore(decode);
+    }
+    else {
+        // history.push(currentPath);
+    }
+};
+export const updateStore = (user) => {
+    console.log(user)
+    // store.dispatch(
+    //     getSignInSuccess({
+    //         userId: getUserSession().userId,
+    //         userName: user.sub,
+    //         token: getAccessToken(),
+    //         firstName: getUserSession().firstName,
+    //         lastName: getUserSession().lastName,
+    //         roles: getRoles()
+    //     })
+    // );
+};
 export const setAuthHeader = () => {
     const token = getAccessToken();
    
