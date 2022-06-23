@@ -13,6 +13,10 @@ export default makeStyles((theme) => ({
     "&.Mui-focusVisible": {
       backgroundColor: theme.palette.common.black,
     },
+    '&:first-child':{
+      marginTop:'10px'
+    },
+    fontSize:'20px'
   },
   linkActive: {
     backgroundColor: alpha(theme.palette.common.black, 0.08),
@@ -30,10 +34,11 @@ export default makeStyles((theme) => ({
       display: "inline-block",
       fill: "#fff",
     },
-    color:
-      theme.palette.type === "dark"
-        ? "#616168 !important"
-        : theme.palette.text.secondary + "99",
+    // color:
+    //   theme.palette.type === "dark"
+    //     ? "#616168 !important"
+    //     : theme.palette.text.secondary + "99",
+    color:'#FFF',
     transition: theme.transitions.create("color"),
     display: "flex",
     justifyContent: "center",
@@ -48,8 +53,9 @@ export default makeStyles((theme) => ({
         ? "#D6D6D6 !important"
         : theme.palette.text.secondary + "CC",
     transition: theme.transitions.create(["opacity", "color"]),
-    fontSize: 14,
+    fontSize: 15,
     color: "#fff",
+    marginLeft:'18px'
   },
   linkTextActive: {
     color: "#fff",

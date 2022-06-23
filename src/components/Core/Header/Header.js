@@ -179,7 +179,7 @@ const HeaderComponent = () => {
               {item.menuName}
             </MenuItem>
           ))} */}
-          {userLogin.userLogin.webPermission.menuModel
+          {userLogin.userLogin.webPermission.menuModel != undefined
             ? userLogin.userLogin.webPermission.menuModel.map((item, index) => (
                 <MenuItem onClick={handleClose} key={index}>
                   <i className={item.icon}></i>

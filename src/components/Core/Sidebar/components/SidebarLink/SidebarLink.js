@@ -155,10 +155,12 @@ export default function SidebarLink({
           <ListItemIcon
             className={classnames(classes.linkIcon, {
               [classes.linkIconActive]: isLinkActive,
-            })}
+            },icon)}
             style={{ margin: nested && -11 }}
           >
-            {/* {nested ? <Dot color={isLinkActive && "primary"} /> : icon} */}
+      
+            {/* <i className={icon}></i> */}
+            {/* {<Dot color={isLinkActive && "primary"} />} */}
           </ListItemIcon>
           <ListItemText
             classes={{
@@ -273,8 +275,8 @@ export default function SidebarLink({
               [classes.linkIconActive]: isLinkActive,
             })}
           >
-            {/* {icon ? icon : <InboxIcon />} */}
-            {props.moduleName}
+            {icon ? icon : <InboxIcon />}
+            {/* {props.moduleName} */}
           </ListItemIcon>
           <ListItemText
             classes={{
@@ -305,7 +307,7 @@ export default function SidebarLink({
             [classes.nestedMenuItem]: type === "nested",
           })}
         >
-          {/* <List component='div' disablePadding>
+          <List component='div' disablePadding>
             {children.map((childrenLink) => (
               <SidebarLink
                 key={(childrenLink && childrenLink.link) || childrenLink.label}
@@ -317,7 +319,7 @@ export default function SidebarLink({
                 {...childrenLink}
               />
             ))}
-          </List> */}
+          </List>
         </Collapse>
       )}
     </>
