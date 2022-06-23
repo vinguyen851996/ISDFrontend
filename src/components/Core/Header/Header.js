@@ -62,9 +62,8 @@ const HeaderComponent = () => {
   let layoutState = useLayoutState();
   let layoutDispatch = useLayoutDispatch();
   let { userLogin } = useContext(userContext);
-
+  console.log(toJS(userLogin));
   // const signInUser = useContext(userContext);
-  // console.log(toJS(signInUser));
 
   // const managementDispatch = useManagementDispatch();
 
@@ -169,19 +168,20 @@ const HeaderComponent = () => {
           {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
           <MenuItem onClick={handleClose}>My account</MenuItem>
           <MenuItem onClick={handleClose}>Logout</MenuItem> */}
-
           {/* {userLogin.signInUser.permission.map((item, index) => (
             <MenuItem onClick={handleClose} key={index}>
               <i className={item.icon}></i>
               {item.menuName}
             </MenuItem>
           ))} */}
-          {userLogin.permission.map((item, index) => (
-            <MenuItem onClick={handleClose} key={index}>
-              <i className={item.icon}></i>
-              {item.menuName}
-            </MenuItem>
-          ))}
+          {userLogin.webPermission.menuModel
+            ? userLogin.webPermission.menuModel.map((item, index) => (
+                <MenuItem onClick={handleClose} key={index}>
+                  <i className={item.icon}></i>
+                  {item.menuName}
+                </MenuItem>
+              ))
+            : ""}
         </Menu>
 
         {/* <div className={classes.grow} />

@@ -18,7 +18,16 @@ import {
   toggleSidebar,
 } from "../context/LayoutContext";
 
-function Sidebar({ location, structure }) {
+import { userContext } from "store/store";
+import { useContext } from "react";
+import { toJS } from "mobx";
+import { Typography } from "@material-ui/core";
+
+function Sidebar({ location }) {
+  console.log(location);
+  let { userLogin } = useContext(userContext);
+  console.log(toJS(userLogin.webPermission.moduleModel));
+
   let classes = useStyles();
 
   let theme = useTheme();
@@ -85,13 +94,13 @@ function Sidebar({ location, structure }) {
         className={classes.sidebarList}
         classes={{ padding: classes.padding }}
       >
-        {structure.map((link) => (
+        {userLogin.webPermission.moduleModel.map((link) => (
           <SidebarLink
             key={link.id}
             location={location}
             isSidebarOpened={!isPermanent ? !isSidebarOpened : isSidebarOpened}
             {...link}
-            toggleDrawer={toggleDrawer(true)}
+            // toggleDrawer={toggleDrawer(true)}
           />
         ))}
       </List>

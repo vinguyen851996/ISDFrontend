@@ -43,6 +43,7 @@ export const ProviderStore = ({ children }) => {
           token: result.data.token,
           refreshToken: result.data.refreshToken,
           permission: result.data.permission.menuModel,
+          webPermission: result.data.webPermission,
         };
         store.signInUser = userSession;
         setUserSession(userSession);

@@ -5,18 +5,17 @@ const Helmet = (props) => {
   const { structure } = props;
   console.log(structure);
   const result = structure.map((item) => {
-    const detailTitle = {};
-    detailTitle = item.label;
-    return detailTitle;
+    const detail = item.label;
+    return detail;
   });
-  console.log(result);
+
   document.title = result + "ISD System ";
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  return <div>{result}</div>;
+  return <div>{result.children}</div>;
 };
 
 Helmet.propTypes = {

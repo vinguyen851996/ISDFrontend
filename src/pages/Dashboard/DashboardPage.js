@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core";
 import classnames from "classnames";
 import { useLayoutState } from "components/Core/context/LayoutContext";
 import { toJS } from "mobx";
+import Helmet from "components/Helmet/Helmet";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
