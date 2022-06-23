@@ -61,7 +61,7 @@ const HeaderComponent = () => {
   // global
   let layoutState = useLayoutState();
   let layoutDispatch = useLayoutDispatch();
-  let { userLogin } = useContext(userContext);
+  let userLogin = useContext(userContext);
   console.log(toJS(userLogin));
   // const signInUser = useContext(userContext);
 
@@ -106,6 +106,11 @@ const HeaderComponent = () => {
     let isSmallScreen = windowWidth < breakpointWidth;
     setSmall(isSmallScreen);
   }
+
+  const handleLogOut = () => {
+    userLogin.signOutStore();
+  };
+
   console.log();
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -174,8 +179,8 @@ const HeaderComponent = () => {
               {item.menuName}
             </MenuItem>
           ))} */}
-          {userLogin.webPermission.menuModel
-            ? userLogin.webPermission.menuModel.map((item, index) => (
+          {userLogin.userLogin.webPermission.menuModel
+            ? userLogin.userLogin.webPermission.menuModel.map((item, index) => (
                 <MenuItem onClick={handleClose} key={index}>
                   <i className={item.icon}></i>
                   {item.menuName}
@@ -215,7 +220,7 @@ const HeaderComponent = () => {
             >
               <AccountCircleIcon />
               <span style={{ fontSize: "15px" }}>
-                {userLogin.userName}
+                {userLogin.userLogin.userName}
                 {/* {userLogin.signInUser.userName} */}
               </span>
             </IconButton>
@@ -233,7 +238,8 @@ const HeaderComponent = () => {
             >
               <PersonIcon />
               <span style={{ fontSize: "15px" }}>
-                {/* ({userLogin.signInUser.userName}) */}({userLogin.userName})
+                {/* ({userLogin.signInUser.userName}) */}(
+                {userLogin.userLogin.userName})
               </span>
               <ArrowDropDownIcon
                 alt={currentUser?.firstName}
@@ -297,7 +303,7 @@ const HeaderComponent = () => {
               <MenuItem
                 className={classes.profileMenuLink}
                 color="primary"
-                // onClick={() => signOut(userDispatch, props.history)}
+                onClick={() => handleLogOut()}
               >
                 <ExitToAppIcon className={classes.profileMenuIcon} />
                 Đăng xuất

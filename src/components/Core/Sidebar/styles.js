@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 240;
 
@@ -8,36 +8,37 @@ export default makeStyles((theme) => ({
     marginRight: 36,
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: 'nowrap',
-  
+    whiteSpace: "nowrap",
   },
   drawerOpen: {
     width: drawerWidth,
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    backgroundColor: "#222d32",
   },
   drawerClose: {
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    overflowX: 'hidden',
+    overflowX: "hidden",
     width: 85,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       width: drawerWidth,
     },
+    backgroundColor: "#222d32",
   },
   toolbar: {
     ...theme.mixins.toolbar,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
     },
   },
   content: {
@@ -46,39 +47,39 @@ export default makeStyles((theme) => ({
   },
   sidebarList: {
     // marginTop: theme.spacing(1),
-    backgroundColor:'#222d32'
+    backgroundColor: "#222d32",
   },
   mobileBackButton: {
     marginTop: theme.spacing(0.5),
     marginLeft: theme.spacing(3),
-    [theme.breakpoints.only('sm')]: {
+    [theme.breakpoints.only("sm")]: {
       marginTop: theme.spacing(0.625),
     },
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
   popover: {
     backgroundColor: theme.palette.primary.main,
-    color: '#fff',
+    color: "#fff",
   },
   fab: {
     width: 36,
     height: 34,
   },
   noBoxShadow: {
-    boxShadow: 'none !important',
+    boxShadow: "none !important",
     marginRight: theme.spacing(1),
   },
   buttonLabel: {
-    color: '#fff',
+    color: "#fff",
   },
   input: {
-    '& .MuiInputBase-input': {
-      color: '#fff',
+    "& .MuiInputBase-input": {
+      color: "#fff",
     },
-    '& .MuiInput-underline:before': {
-      borderBottom: '1px solid rgba(255, 255, 255, .45)',
+    "& .MuiInput-underline:before": {
+      borderBottom: "1px solid rgba(255, 255, 255, .45)",
     },
   },
   chat: {

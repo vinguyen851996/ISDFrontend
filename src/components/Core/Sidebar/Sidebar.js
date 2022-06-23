@@ -21,12 +21,11 @@ import {
 import { userContext } from "store/store";
 import { useContext } from "react";
 import { toJS } from "mobx";
-import { Typography } from "@material-ui/core";
+import { observer } from "mobx-react";
 
-function Sidebar({ location }) {
-  console.log(location);
-  let { userLogin } = useContext(userContext);
-  console.log(toJS(userLogin.webPermission.moduleModel));
+function SidebarComponent({ location }) {
+  let userLogin = useContext(userContext);
+  console.log(toJS(userLogin));
 
   let classes = useStyles();
 
@@ -94,15 +93,19 @@ function Sidebar({ location }) {
         className={classes.sidebarList}
         classes={{ padding: classes.padding }}
       >
-        {userLogin.webPermission.moduleModel.map((link) => (
-          <SidebarLink
-            key={link.id}
-            location={location}
-            isSidebarOpened={!isPermanent ? !isSidebarOpened : isSidebarOpened}
-            {...link}
-            // toggleDrawer={toggleDrawer(true)}
-          />
-        ))}
+        {userLogin.userLogin.webPermission.moduleModel
+          ? userLogin.userLogin.webPermission.moduleModel.map((link) => (
+              <SidebarLink
+                key={link.id}
+                location={location}
+                isSidebarOpened={
+                  !isPermanent ? !isSidebarOpened : isSidebarOpened
+                }
+                {...link}
+                toggleDrawer={toggleDrawer(true)}
+              />
+            ))
+          : ""}
       </List>
     </Drawer>
   );
@@ -122,4 +125,5 @@ function Sidebar({ location }) {
 }
 
 // export default withRouter(Sidebar);
-export default Sidebar;
+const Sidebar = observer(SidebarComponent);
+export { Sidebar };

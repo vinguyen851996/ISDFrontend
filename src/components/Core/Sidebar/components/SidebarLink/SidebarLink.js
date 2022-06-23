@@ -40,6 +40,7 @@ export default function SidebarLink({
   click,
   ...props
 }) {
+  console.log(props.moduleName);
   // local
   let [isOpen, setIsOpen] = useState(false);
   // console.log(isSidebarOpened )
@@ -157,7 +158,7 @@ export default function SidebarLink({
             })}
             style={{ margin: nested && -11 }}
           >
-            {nested ? <Dot color={isLinkActive && "primary"} /> : icon}
+            {/* {nested ? <Dot color={isLinkActive && "primary"} /> : icon} */}
           </ListItemIcon>
           <ListItemText
             classes={{
@@ -167,7 +168,9 @@ export default function SidebarLink({
               }),
             }}
             primary={label}
-          />
+          >
+            {props.moduleName}
+          </ListItemText>
         </ListItem>
         <Popover
           id={id}
@@ -212,7 +215,7 @@ export default function SidebarLink({
 
   return (
     <>
-      {props.badge ? (
+      {props ? (
         <ListItem
           button
           component={link && Link}
@@ -229,7 +232,8 @@ export default function SidebarLink({
               [classes.linkIconActive]: isLinkActive,
             })}
           >
-            {icon ? icon : <InboxIcon />}
+            {/* {icon ? icon : <InboxIcon />} */}
+            {props.moduleName}
           </ListItemIcon>
           <Badge badgeContent={props.badge} color={props.badgeColor}>
             <ListItemText
@@ -269,7 +273,8 @@ export default function SidebarLink({
               [classes.linkIconActive]: isLinkActive,
             })}
           >
-            {icon ? icon : <InboxIcon />}
+            {/* {icon ? icon : <InboxIcon />} */}
+            {props.moduleName}
           </ListItemIcon>
           <ListItemText
             classes={{

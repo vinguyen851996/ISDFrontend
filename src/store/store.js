@@ -2,13 +2,14 @@ import React, { createContext } from "react";
 import { useLocalObservable } from "mobx-react-lite";
 import * as services from "./service";
 import { useNavigate } from "react-router-dom";
-import { setUserSession } from "../utils/localStorageHelper";
+import { clearUserSession, setUserSession } from "../utils/localStorageHelper";
 
 export const ProviderStore = ({ children }) => {
   let user = {};
   if (localStorage.getItem("user_session")) {
     user = JSON.parse(localStorage.getItem("user_session"));
   }
+
   let navigate = useNavigate();
   const store = useLocalObservable(() => ({
     company: [],
@@ -57,6 +58,12 @@ export const ProviderStore = ({ children }) => {
         const { data } = await services.saleORG(userName, companyCode);
         // console.log(data);
         store.saleCode = data;
+      } catch (e) {}
+    },
+    async signOutStore() {
+      try {
+        clearUserSession("user_session");
+        // navigate("../../auth/login", { replace: true });
       } catch (e) {}
     },
   }));

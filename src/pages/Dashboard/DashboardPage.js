@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Footer from "components/Core/Footer/Footer";
 import { Header } from "components/Core/Header/Header";
-import Sidebar from "components/Core/Sidebar/Sidebar";
+import { Sidebar } from "components/Core/Sidebar/Sidebar";
 import structure from "components/Core/Sidebar/SidebarStructure";
 import { Route, Routes } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
