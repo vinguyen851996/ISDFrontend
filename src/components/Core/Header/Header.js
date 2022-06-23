@@ -52,15 +52,19 @@ import { observer } from "mobx-react";
 import { toJS } from "mobx";
 import { NavLink } from "react-router-dom";
 
-const HeaderComponent = (props) => {
+const HeaderComponent = () => {
+  // const { userLogin } = props;
+  // console.log(userLogin.signInUser.userName);
   let classes = useStyles();
   let theme = useTheme();
 
   // global
   let layoutState = useLayoutState();
   let layoutDispatch = useLayoutDispatch();
-  // let { userLogin } = useContext(userContext);
-  // console.log(toJS(userLogin.data.permission.menuModel));
+  let { userLogin } = useContext(userContext);
+
+  // const signInUser = useContext(userContext);
+  // console.log(toJS(signInUser));
 
   // const managementDispatch = useManagementDispatch();
 
@@ -119,7 +123,7 @@ const HeaderComponent = (props) => {
             </Typography>
           </NavLink>
         ) : (
-          <NavLink to="/Dashboard">
+          <NavLink to="/Dashboard" className={classes.logo}>
             <img src={logo} className={classes.imgLogo} />
           </NavLink>
         )}
@@ -166,13 +170,18 @@ const HeaderComponent = (props) => {
           <MenuItem onClick={handleClose}>My account</MenuItem>
           <MenuItem onClick={handleClose}>Logout</MenuItem> */}
 
-          {/* {userLogin.data.permission.menuModel.map((item, index) => (
+          {/* {userLogin.signInUser.permission.map((item, index) => (
             <MenuItem onClick={handleClose} key={index}>
               <i className={item.icon}></i>
               {item.menuName}
             </MenuItem>
           ))} */}
-          
+          {userLogin.permission.map((item, index) => (
+            <MenuItem onClick={handleClose} key={index}>
+              <i className={item.icon}></i>
+              {item.menuName}
+            </MenuItem>
+          ))}
         </Menu>
 
         {/* <div className={classes.grow} />
@@ -206,8 +215,8 @@ const HeaderComponent = (props) => {
             >
               <AccountCircleIcon />
               <span style={{ fontSize: "15px" }}>
-                {" "}
-                {/* {userLogin.data.userName} */}
+                {userLogin.userName}
+                {/* {userLogin.signInUser.userName} */}
               </span>
             </IconButton>
           </div>
@@ -224,7 +233,7 @@ const HeaderComponent = (props) => {
             >
               <PersonIcon />
               <span style={{ fontSize: "15px" }}>
-                {/* {userLogin.data.userName} */}
+                {/* ({userLogin.signInUser.userName}) */}({userLogin.userName})
               </span>
               <ArrowDropDownIcon
                 alt={currentUser?.firstName}
@@ -284,14 +293,16 @@ const HeaderComponent = (props) => {
             Đổi mật khẩu
           </MenuItem>
           <div className={classes.profileMenuItem}>
-            <MenuItem
-              className={classes.profileMenuLink}
-              color="primary"
-              // onClick={() => signOut(userDispatch, props.history)}
-            >
-              <ExitToAppIcon className={classes.profileMenuIcon} />
-              Đăng xuất
-            </MenuItem>
+            <NavLink to="/auth/login" className={classes.navLink}>
+              <MenuItem
+                className={classes.profileMenuLink}
+                color="primary"
+                // onClick={() => signOut(userDispatch, props.history)}
+              >
+                <ExitToAppIcon className={classes.profileMenuIcon} />
+                Đăng xuất
+              </MenuItem>
+            </NavLink>
           </div>
         </Menu>
       </Toolbar>

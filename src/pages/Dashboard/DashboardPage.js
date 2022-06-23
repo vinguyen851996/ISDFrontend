@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import classnames from "classnames";
 import { useLayoutState } from "components/Core/context/LayoutContext";
+import { toJS } from "mobx";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -34,7 +35,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 25,
   },
 }));
-export const DashboardPage = () => {
+export const DashboardPage = (props) => {
+  const { company } = props;
+  // console.log(company);
   const classes = useStyles();
   let layoutState = useLayoutState().state;
   // console.log(layoutState )
@@ -47,7 +50,7 @@ export const DashboardPage = () => {
   };
   return (
     <div className={classes.root}>
-      <Header />
+      <Header userLogin={company} />
       <Sidebar structure={structure} />
 
       <div
@@ -57,11 +60,11 @@ export const DashboardPage = () => {
       >
         <div className={classes.fakeToolbar} />
         <Routes>
-          {/* <Route path="home" element={<Home />} />
-          <Route path="profile" element={"profile"} /> */}
-          {structure.map((item, index) => (
+          <Route path="home" element={<Home />} />
+          <Route path="profile" element={"profile"} />
+          {/* {structure.map((item, index) => (
             <Route key={index} path={`/${item}`} element={`/${item}`} />
-          ))}
+          ))} */}
         </Routes>
       </div>
       <Footer />

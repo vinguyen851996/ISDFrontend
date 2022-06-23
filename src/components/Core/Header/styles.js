@@ -30,9 +30,13 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
     "&:hover": {
       cursor: "pointer",
-      padding: "5px",
+      padding: "3px",
       backgroundColor: alpha(theme.palette.common.black, 0.08),
     },
+  },
+  navLink: {
+    textDecoration: "none",
+    color: "#B9B9B9",
   },
   appBar: {
     width: "100%",

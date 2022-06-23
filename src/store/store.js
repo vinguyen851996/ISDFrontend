@@ -1,18 +1,23 @@
-import React from "react";
+import React, { createContext } from "react";
 import { useLocalObservable } from "mobx-react-lite";
 import * as services from "./service";
 import { useNavigate } from "react-router-dom";
-import {setUserSession} from "../utils/localStorageHelper"
+import { setUserSession } from "../utils/localStorageHelper";
+
 export const ProviderStore = ({ children }) => {
+  let user = {};
+  if (localStorage.getItem("user_session")) {
+    user = JSON.parse(localStorage.getItem("user_session"));
+  }
   let navigate = useNavigate();
   const store = useLocalObservable(() => ({
     company: [],
     saleCode: [],
-    signInUser:{},
+    userLogin: user,
+    signInUser: {},
     async getCompany(username) {
       try {
         const { data } = await services.companyList(username);
-      
         store.company = data;
       } catch (e) {
         // store.setError(e);
@@ -21,8 +26,8 @@ export const ProviderStore = ({ children }) => {
 
     async login(data) {
       try {
-       
         const result = await services.login(data);
+        console.log(result);
         const userSession = {
           accountId: result.data.accountId,
           userName: result.data.userName,
@@ -37,9 +42,11 @@ export const ProviderStore = ({ children }) => {
           role: result.data.role,
           token: result.data.token,
           refreshToken: result.data.refreshToken,
-      };
-      store.signInUser=userSession;
-      setUserSession(userSession);
+          permission: result.data.permission.menuModel,
+        };
+        store.signInUser = userSession;
+        setUserSession(userSession);
+        // console.log(setUserSession);
         navigate("../../Dashboard/index", { replace: true });
       } catch (e) {}
     },
@@ -47,11 +54,11 @@ export const ProviderStore = ({ children }) => {
     async saleORG(userName, companyCode) {
       try {
         const { data } = await services.saleORG(userName, companyCode);
+        // console.log(data);
         store.saleCode = data;
-    
       } catch (e) {}
     },
   }));
   return <userContext.Provider value={store}>{children}</userContext.Provider>;
 };
-export const userContext = React.createContext();
+export const userContext = createContext();

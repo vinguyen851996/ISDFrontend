@@ -91,7 +91,7 @@ const validationSchema = Yup.object().shape({
     .min(6, "Mật khẩu ít nhất 6 ký tự")
     .max(16, "Mật khẩu tối đa 16 ký tự"),
 });
-const LoginPage = (props) => {
+const LoginPage = () => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     password: "",
@@ -149,11 +149,13 @@ const LoginPage = (props) => {
             <Grid container spacing={4}>
               <Grid item md={12} xs={12}>
                 <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
-                  <Typography className={classes.label}>userName</Typography>
+                  <Typography className={classes.label}>
+                    Tên Đăng Nhập
+                  </Typography>
                   <OutlinedInput
                     {...register("userName")}
                     className={classes.input}
-                    placeholder="userName"
+                    placeholder="Tên Tài Khoản"
                     onChange={(e) => onchangeUserName(e)}
                   />
                 </FormControl>
