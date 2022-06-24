@@ -1,0 +1,38 @@
+.bg__image__anphat {
+  /* background-image: url("../../../assets/img/08-anphat.jpg"); */
+  background-image: url("../../../assets/img/08-anphat.png");
+  background-size: cover;
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+.pie-under {
+  background: #a6a6a6;
+  border-radius: 50%;
+  /* width: 100px;
+  height: 100px; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data__hover p {
+  font-size: 12px;
+  color: white;
+  margin-bottom: 0;
+}
+
+.data__hover {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  /* background: rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+    transition: transform 0.5s ease; */
+}

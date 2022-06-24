@@ -32,7 +32,7 @@ function SidebarComponent({ location }) {
   let theme = useTheme();
 
   const toggleDrawer = (value) => (event) => {
-    // console.log(value,event)
+    // console.log(value, event);
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -94,7 +94,7 @@ function SidebarComponent({ location }) {
         classes={{ padding: classes.padding }}
       >
         {userLogin.userLogin.webPermission.moduleModel
-          ? userLogin.userLogin.webPermission.moduleModel.map((link,key) => (
+          ? userLogin.userLogin.webPermission.moduleModel.map((link, key) => (
               <SidebarLink
                 key={key}
                 location={location}

@@ -1,0 +1,31 @@
+.bg__image__anthanh {
+  /* background-image: url("../../../assets/img/08-anphat.jpg"); */
+  background-image: url("../../../assets/img/03-anthanh.png");
+  background-size: cover;
+  /* width: 1250px;
+  height: 600px; */
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+.nhontrach {
+  width: 100%;
+}
+
+.pie-under {
+  background: #a6a6a6;
+  border-radius: 50%;
+  /* width: 100px;
+    height: 100px; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data__hover p {
+  font-size: 10px;
+  color: white;
+  margin-bottom: 0;
+}

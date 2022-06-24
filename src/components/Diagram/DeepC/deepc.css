@@ -1,0 +1,27 @@
+.bg__image__deepc {
+  /* background-image: url("../../../assets/img/08-anphat.jpg"); */
+  background-image: url("../../../assets/img/06-deepC12.png");
+  background-size: cover;
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+.pie-under {
+  background: #a6a6a6;
+  border-radius: 50%;
+  /* width: 100px;
+    height: 100px; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data__hover p {
+  font-size: 10px;
+  color: white;
+  margin-bottom: 0;
+}

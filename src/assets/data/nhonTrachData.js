@@ -1,0 +1,156 @@
+export const nhonTrachData = [
+  {
+    name: "C",
+    square: "1F: 1,920m²",
+    status: "occupied",
+    dot: {
+      x: 50,
+      y: 78,
+    },
+    width: "55px",
+    height: "55px",
+  },
+  {
+    name: "C",
+    square: "2F: 1,920m²",
+    status: "ipa",
+    dot: {
+      x: 50,
+      y: 140,
+    },
+    width: "55px",
+    height: "55px",
+  },
+  {
+    name: "B-04",
+    square: "3,840 m²",
+    status: "under",
+    dot: {
+      x: 170,
+      y: 95,
+    },
+    width: "80px",
+    height: "80px",
+  },
+  {
+    name: "B-03",
+    square: "1F: 3,840m²",
+    status: "under",
+    dot: {
+      x: 315,
+      y: 78,
+    },
+    width: "60px",
+    height: "60px",
+  },
+  {
+    name: "B-03",
+    square: "2F: 2,600m²",
+    status: "occupied",
+    dot: {
+      x: 315,
+      y: 140,
+    },
+    width: "60px",
+    height: "60px",
+  },
+  {
+    name: "B-02",
+    square: "1F: 3,840m²",
+    status: "ipa",
+    dot: {
+      x: 390,
+      y: 78,
+    },
+    width: "60px",
+    height: "60px",
+  },
+  {
+    name: "B-02",
+    square: "2F: 2,600m²",
+    status: "available",
+    dot: {
+      x: 390,
+      y: 140,
+    },
+    width: "60px",
+    height: "60px",
+  },
+  {
+    name: "B-01",
+    square: "3,910m²",
+    status: "available",
+    dot: {
+      x: 515,
+      y: 95,
+    },
+    width: "80px",
+    height: "80px ",
+  },
+  {
+    name: "A-04",
+    square: "4,152m²",
+    status: "available",
+    dot: {
+      x: 855,
+      y: 95,
+    },
+    width: "80px",
+    height: "80px",
+  },
+  {
+    name: "A-03",
+    square: "3,880m²",
+    status: "occupied",
+    dot: {
+      x: 962,
+      y: 100,
+    },
+    width: "60px",
+    height: "60px",
+  },
+  {
+    name: "A-02",
+    square: "1F: 3,200m²",
+    status: "available",
+    dot: {
+      x: 1035,
+      y: 92,
+    },
+    width: "55px",
+    height: "55px",
+  },
+  {
+    name: "A-02",
+    square: "2F: 1,960m²",
+    status: "ipa",
+    dot: {
+      x: 1035,
+      y: 155,
+    },
+    width: "55px",
+    height: "55px",
+  },
+  {
+    name: "A-01",
+    square: "3,580m²",
+    status: "available",
+    dot: {
+      x: 1135,
+      y: 95,
+    },
+    width: "80px",
+    height: "80px",
+  },
+  {
+    name: "D",
+    square: "560m²",
+    status: "available",
+    dot: {
+      x: 1270,
+      y: 75,
+    },
+    width: "35px",
+    height: "35px",
+  },
+];

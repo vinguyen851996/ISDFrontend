@@ -1,0 +1,28 @@
+.bg__image__zonea {
+  /* background-image: url("../../../assets/img/08-anphat.jpg"); */
+  background-image: url("../../../assets/img/04-tanhung-zoneA.png");
+  background-size: cover;
+  width: 700px;
+  height: 700px;
+  position: absolute;
+  background-repeat: no-repeat;
+  margin-left: 200px;
+}
+
+.pie-under {
+  background: #a6a6a6;
+  border-radius: 50%;
+  /* width: 100px;
+    height: 100px; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data__hover p {
+  font-size: 10px;
+  color: white;
+  margin-bottom: 0;
+}

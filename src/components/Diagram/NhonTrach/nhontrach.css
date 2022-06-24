@@ -1,0 +1,74 @@
+.bg__image__nhontrach {
+  /* background-image: url("../../../assets/img/08-anphat.jpg"); */
+  background-image: url("../../../assets/img/01-nhontrach.png");
+  background-size: cover;
+  /* width: 1350px;
+  height: 400px; */
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+.nhontrach {
+  width: 100%;
+}
+
+.pie-under-available {
+  background: #a6a6a6;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pie-under-occupied {
+  background: #4c653b;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pie-under-under {
+  background: #b16666;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pie-under-ipa {
+  background: #e6c152;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data__hover {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.data__hover p {
+  font-size: 8px !important;
+  color: white;
+  margin-bottom: 0;
+}

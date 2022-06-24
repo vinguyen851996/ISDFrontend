@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import classnames from "classnames";
 import { useLayoutState } from "components/Core/context/LayoutContext";
+import Diagram from "components/Diagram/Diagram";
 import { toJS } from "mobx";
 import Helmet from "components/Helmet/Helmet";
 const useStyles = makeStyles((theme) => ({
@@ -42,13 +43,13 @@ export const DashboardPage = (props) => {
   const classes = useStyles();
   let layoutState = useLayoutState().state;
 
-  const Home = () => {
-    return (
-      <div>
-        <h1>Home</h1>
-      </div>
-    );
-  };
+  // const Diagram = () => {
+  //   return (
+  //     <div>
+  //       <h1>Home</h1>
+  //     </div>
+  //   );
+  // };
   return (
     <div className={classes.root}>
       <Header userLogin={company} />
@@ -61,7 +62,7 @@ export const DashboardPage = (props) => {
       >
         <div className={classes.fakeToolbar} />
         <Routes>
-          <Route path="Development" element={<Home />} />
+          <Route path="Development" element={<Diagram />} />
           {/* <Route path="Khách hàng" element={"profile"} /> */}
           {/* {structure.map((item, index) => (
             <Route key={index} path={`/${item}`} element={`/${item}`} />
