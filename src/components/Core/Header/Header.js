@@ -134,10 +134,15 @@ const HeaderComponent = () => {
         <IconButton
           color="inherit"
           onClick={() => toggleSidebar(layoutDispatch)}
-          className={classNames(
+          className={ !layoutState.state.isSidebarOpened?
+            classNames(
             classes.headerMenuButton,
             classes.headerMenuButtonCollapse
-          )}
+          ):classNames(
+            classes.headerMenuButton,
+            classes.headerMenuButtonCollapse,
+            classes.headerMenuButtonCollapseMargin
+          ) }
         >
           <MenuIcon
             classes={{
@@ -179,12 +184,12 @@ const HeaderComponent = () => {
               {item.menuName}
             </MenuItem>
           ))} */}
-          {userLogin.userLogin.webPermission.menuModel != undefined
-            ? userLogin.userLogin.webPermission.menuModel.map((item, index) => (
+          {userLogin.userLogin.webPermission.moduleModel != undefined
+            ? userLogin.userLogin.webPermission.moduleModel.map((item, index) => (
                 <MenuItem onClick={handleClose} key={index}>
                   <i className={item.icon}></i>
                   <Typography className={classes.headerSection}>
-                    {item.menuName}
+                    {item.moduleName}
                   </Typography>
                 </MenuItem>
               ))
@@ -221,14 +226,14 @@ const HeaderComponent = () => {
               aria-controls="profile-menu"
             >
               <AccountCircleIcon />
-              <span style={{ fontSize: "15px" }}>
+              <Typography className={classes.textButtonHeader}>
                 {userLogin.userLogin.userName}
                 {/* {userLogin.signInUser.userName} */}
-              </span>
+              </Typography>
             </IconButton>
           </div>
           <div className={classes.nofitication}>
-            <NotificationsIcon style={{ marginTop: "10px" }} />
+            <NotificationsIcon style={{ marginTop: "10px",width:'20px' }} />
           </div>
           <div className={classes.menuProfile}>
             <IconButton
@@ -238,18 +243,13 @@ const HeaderComponent = () => {
               aria-controls="profile-menu"
               onClick={(e) => setProfileMenu(e.currentTarget)}
             >
-              <PersonIcon />
-              <span style={{ fontSize: "15px" }}>
+              <PersonIcon style={{ width:'20px' }}/>
+              <span className={classes.nameUser}>
                 {/* ({userLogin.signInUser.userName}) */}(
                 {userLogin.userLogin.userName})
               </span>
               <ArrowDropDownIcon
                 alt={currentUser?.firstName}
-                // eslint-disable-next-line no-mixed-operators
-                // src={
-                //   (currentUser?.avatar?.length >= 1 &&
-                //   currentUser?.avatar[currentUser.avatar.length - 1].publicUrl) || profile
-                // }
                 classes={{ root: classes.headerIcon }}
               >
                 {/* {currentUser?.firstName?.[0]} */}

@@ -2,6 +2,16 @@ import { makeStyles } from "@mui/styles";
 import { alpha } from "@mui/material/styles";
 
 export default makeStyles((theme) => ({
+  textButtonHeader:{
+   fontSize:'13px',
+   textTransform: "none",
+   marginLeft:'2px'
+  },
+  nameUser:{
+    fontSize:'12px',
+    marginTop:'2px',
+    marginLeft:'1px'
+  },
   buttonSelect: {
     color: "#fff",
     textTransform: "none",
@@ -50,8 +60,10 @@ export default makeStyles((theme) => ({
     marginLeft: "15px",
   },
   toolbar: {
-    paddingLeft: theme.spacing(2),
+    paddingLeft: '0px',
     paddingRight: theme.spacing(2),
+    minHeight:"52px !important"
+ 
   },
   hide: {
     display: "none",
@@ -110,6 +122,7 @@ export default makeStyles((theme) => ({
   },
   headerMenu: {
     marginTop: theme.spacing(2),
+ 
   },
   headerMenuList: {
     display: "flex",
@@ -123,7 +136,10 @@ export default makeStyles((theme) => ({
   },
   headerMenuButton: {
     // marginLeft: theme.spacing(2),
-    padding: theme.spacing(0.5),
+    // padding: theme.spacing(0.5),
+    padding:'0px 0xp 0xp 0px',
+    height:'30px'
+    
   },
   headerMenuButtonSandwich: {
     marginLeft: 9,
@@ -134,10 +150,15 @@ export default makeStyles((theme) => ({
   },
   headerMenuButtonCollapse: {
     marginRight: theme.spacing(2),
+    marginLeft: '20px',
+  },
+  headerMenuButtonCollapseMargin:{
+    marginLeft:'35px'
   },
   headerIcon: {
-    fontSize: 28,
-    color: "rgba(255, 255, 255, 0.35)",
+    fontSize: 23,
+    
+    // color: "rgba(255, 255, 255, 0.35)",
     "&:hover": {
       cursor: "pointer",
       backgroundColor: alpha(theme.palette.common.black, 0.08),

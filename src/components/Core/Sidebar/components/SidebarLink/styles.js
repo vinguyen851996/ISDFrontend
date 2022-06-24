@@ -3,6 +3,7 @@ import { alpha } from "@mui/material/styles";
 
 export default makeStyles((theme) => ({
   link: {
+  
     textDecoration: "none",
     "&:hover, &:focus": {
       backgroundColor: "#1e282c",
@@ -13,10 +14,9 @@ export default makeStyles((theme) => ({
     "&.Mui-focusVisible": {
       backgroundColor: theme.palette.common.black,
     },
-    '&:first-child':{
-      marginTop:'10px'
-    },
-    fontSize:'20px'
+ 
+    fontSize:'16px',
+    paddingLeft:'0px'
   },
   linkActive: {
     backgroundColor: alpha(theme.palette.common.black, 0.08),
@@ -38,13 +38,17 @@ export default makeStyles((theme) => ({
     //   theme.palette.type === "dark"
     //     ? "#616168 !important"
     //     : theme.palette.text.secondary + "99",
-    color:'#FFF',
+    color:'#b8c7ce',
     transition: theme.transitions.create("color"),
     display: "flex",
     justifyContent: "center",
+    "&:hover":{
+      color:"#fff"
+    }
+ 
   },
   linkIconActive: {
-    color: `${theme.palette.primary.main} !important`,
+    color: `#fff !important`,
   },
   linkText: {
     padding: 0,
@@ -53,9 +57,12 @@ export default makeStyles((theme) => ({
     //     ? "#D6D6D6 !important"
     //     : theme.palette.text.secondary + "CC",
     transition: theme.transitions.create(["opacity", "color"]),
-    fontSize: 15,
-    color: "#fff",
-    marginLeft:'18px'
+    fontSize: 13,
+    color:'#b8c7ce',
+    // marginLeft:'18px',
+    "&:hover": {
+      color:"#fff"
+    }
   },
   linkTextActive: {
     color: "#fff",

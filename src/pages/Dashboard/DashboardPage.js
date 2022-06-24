@@ -61,7 +61,7 @@ export const DashboardPage = (props) => {
       >
         <div className={classes.fakeToolbar} />
         <Routes>
-          <Route path="Development" element={<Home />} />
+          <Route path="90680362-c320-4958-b05a-08bf73b7c678" element={<Home />} />
           {/* <Route path="Khách hàng" element={"profile"} /> */}
           {/* {structure.map((item, index) => (
             <Route key={index} path={`/${item}`} element={`/${item}`} />

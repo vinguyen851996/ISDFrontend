@@ -1,8 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const drawerWidth = 240;
+const drawerWidth = 230;
 
 export default makeStyles((theme) => ({
+  autocomplete:{
+marginLeft:'15px',
+
+  },
   menuButton: {
     marginLeft: 12,
     marginRight: 36,
@@ -29,7 +33,7 @@ export default makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: 85,
+    width: 50,
     [theme.breakpoints.down("sm")]: {
       width: drawerWidth,
     },
@@ -40,6 +44,8 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
+    minHeight:"52px"
+  
   },
   content: {
     flexGrow: 1,

@@ -41,7 +41,7 @@ export default function SidebarLink({
   ...props
 }) {
   
-  link=props.moduleName;
+  link=props.menuId;
   // local
   let [isOpen, setIsOpen] = useState(false);
   // console.log(isSidebarOpened )
@@ -172,7 +172,7 @@ export default function SidebarLink({
             }}
             primary={label}
           >
-            {props.moduleName}
+            {props.menuName}
           </ListItemText>
         </ListItem>
         <Popover
