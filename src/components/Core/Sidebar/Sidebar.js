@@ -94,9 +94,9 @@ function SidebarComponent({ location }) {
         classes={{ padding: classes.padding }}
       >
         {userLogin.userLogin.webPermission.moduleModel
-          ? userLogin.userLogin.webPermission.moduleModel.map((link) => (
+          ? userLogin.userLogin.webPermission.moduleModel.map((link,key) => (
               <SidebarLink
-                key={link.id}
+                key={key}
                 location={location}
                 isSidebarOpened={
                   !isPermanent ? !isSidebarOpened : isSidebarOpened

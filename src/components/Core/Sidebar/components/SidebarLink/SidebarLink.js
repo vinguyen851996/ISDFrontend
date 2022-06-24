@@ -40,7 +40,8 @@ export default function SidebarLink({
   click,
   ...props
 }) {
-  console.log(props.moduleName);
+  
+  link=props.moduleName;
   // local
   let [isOpen, setIsOpen] = useState(false);
   // console.log(isSidebarOpened )

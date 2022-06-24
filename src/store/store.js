@@ -3,7 +3,7 @@ import { useLocalObservable } from "mobx-react-lite";
 import * as services from "./service";
 import { useNavigate } from "react-router-dom";
 import { clearUserSession, setUserSession } from "../utils/localStorageHelper";
-
+import { observable, runInAction } from "mobx"
 export const ProviderStore = ({ children }) => {
   let user = {};
   if (localStorage.getItem("user_session")) {
@@ -57,7 +57,10 @@ export const ProviderStore = ({ children }) => {
       try {
         const { data } = await services.saleORG(userName, companyCode);
         // console.log(data);
-        store.saleCode = data;
+        runInAction(() => {
+          store.saleCode = data;
+      })
+     
       } catch (e) {}
     },
     async signOutStore() {

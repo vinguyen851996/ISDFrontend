@@ -38,10 +38,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 export const DashboardPage = (props) => {
   const { company } = props;
-  // console.log(company);
+
   const classes = useStyles();
   let layoutState = useLayoutState().state;
-  // console.log(layoutState )
+
   const Home = () => {
     return (
       <div>
@@ -61,8 +61,8 @@ export const DashboardPage = (props) => {
       >
         <div className={classes.fakeToolbar} />
         <Routes>
-          <Route path="home" element={<Home />} />
-          <Route path="profile" element={"profile"} />
+          <Route path="Development" element={<Home />} />
+          {/* <Route path="Khách hàng" element={"profile"} /> */}
           {/* {structure.map((item, index) => (
             <Route key={index} path={`/${item}`} element={`/${item}`} />
           ))} */}

@@ -48,10 +48,10 @@ export default makeStyles((theme) => ({
   },
   linkText: {
     padding: 0,
-    color:
-      theme.palette.type === "dark"
-        ? "#D6D6D6 !important"
-        : theme.palette.text.secondary + "CC",
+    // color:
+    //   theme.palette.type === "dark"
+    //     ? "#D6D6D6 !important"
+    //     : theme.palette.text.secondary + "CC",
     transition: theme.transitions.create(["opacity", "color"]),
     fontSize: 15,
     color: "#fff",
