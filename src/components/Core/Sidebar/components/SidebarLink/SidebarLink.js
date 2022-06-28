@@ -40,8 +40,7 @@ export default function SidebarLink({
   click,
   ...props
 }) {
-  
-  link=props.moduleName;
+  link = props.menuId;
   // local
   let [isOpen, setIsOpen] = useState(false);
   // console.log(isSidebarOpened )
@@ -154,12 +153,15 @@ export default function SidebarLink({
           }}
         >
           <ListItemIcon
-            className={classnames(classes.linkIcon, {
-              [classes.linkIconActive]: isLinkActive,
-            },icon)}
+            className={classnames(
+              classes.linkIcon,
+              {
+                [classes.linkIconActive]: isLinkActive,
+              },
+              icon
+            )}
             style={{ margin: nested && -11 }}
           >
-      
             {/* <i className={icon}></i> */}
             {/* {<Dot color={isLinkActive && "primary"} />} */}
           </ListItemIcon>
@@ -172,7 +174,7 @@ export default function SidebarLink({
             }}
             primary={label}
           >
-            {props.moduleName}
+            {props.menuName}
           </ListItemText>
         </ListItem>
         <Popover
@@ -308,7 +310,7 @@ export default function SidebarLink({
             [classes.nestedMenuItem]: type === "nested",
           })}
         >
-          <List component='div' disablePadding>
+          <List component="div" disablePadding>
             {children.map((childrenLink) => (
               <SidebarLink
                 key={(childrenLink && childrenLink.link) || childrenLink.label}

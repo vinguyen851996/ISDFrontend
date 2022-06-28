@@ -10,7 +10,7 @@ export default function TanHungDiagram(props) {
     <div className="container">
       <div
         className="bg__image__tanhung"
-        style={{ width: width, height: height }}
+        style={{ width: width, height: height, marginLeft: "50px" }}
       >
         <div className="row pie">
           {/* <img

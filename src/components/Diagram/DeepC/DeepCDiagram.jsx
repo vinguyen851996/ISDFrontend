@@ -6,7 +6,7 @@ import DataDeepC from "./DataDeepC";
 export default function DeepCDiagram() {
   return (
     <div className="ml-5">
-      <div className="bg__image__deepc">
+      <div className="bg__image__deepc" style={{ marginLeft: "250px" }}>
         <div className="row pie">
           {deepcData.map((item, index) => {
             return (

@@ -1,11 +1,4 @@
 import React from "react";
-import AnPhatDiagram from "../Diagram/AnPhat/AnPhatDiagram";
-import HoNaiDiagram from "../Diagram/HoNai/HoNaiDiagram";
-import NhonTrachDiagram from "../Diagram/NhonTrach/NhonTrachDiagram";
-import TanHungDiagram from "../Diagram/TanHung/TanHungDiagram";
-import AnThanhDiagram from "../Diagram/AnThanh/AnThanhDiagram";
-import ZoneADiagram from "../Diagram/TanHungZoneA/ZoneADiagram";
-import DeepCDiagram from "../Diagram/DeepC/DeepCDiagram";
 import { diagramImage } from "assets/data/diagramImage";
 
 import Box from "@mui/material/Box";
@@ -41,8 +34,10 @@ export default function Diagram() {
           </Select>
         </FormControl>
       </Box>
-      <div className="diagram" style={{ marginTop: "20px" }}>
-        {" "}
+      <div
+        className="diagram"
+        style={{ marginTop: "20px", marginLeft: "50px" }}
+      >
         {diagram}
       </div>
     </div>

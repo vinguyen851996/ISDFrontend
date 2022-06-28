@@ -4,6 +4,7 @@ import AnThanhDiagram from "components/Diagram/AnThanh/AnThanhDiagram";
 import ZoneADiagram from "components/Diagram/TanHungZoneA/ZoneADiagram";
 import TanHungDiagram from "components/Diagram/TanHung/TanHungDiagram";
 import DeepCDiagram from "components/Diagram/DeepC/DeepCDiagram";
+import AnPhatDiagram from "components/Diagram/AnPhat/AnPhatDiagram";
 
 export const diagramImage = [
   {
@@ -30,10 +31,23 @@ export const diagramImage = [
   },
   {
     name: "Tân Hưng - Zone B&C",
-    width: "75%",
+    width: "65%",
     height: "100%",
     component: <TanHungDiagram width={"75%"} height={"100%"} />,
   },
+  {
+    name: "Deep C",
+    width: "800px",
+    height: "600px",
+    component: <DeepCDiagram width={"800px"} height={"600px"} />,
+  },
+  {
+    name: "An Phát",
+    width: "90%",
+    height: "100%",
+    component: <AnPhatDiagram width={"90%"} height={"100%"} />,
+  },
+
   // {
   //   name: "DeepC12",
   //   width: "950px",

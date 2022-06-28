@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { ArrowBack as ArrowBackIcon } from "@mui/icons-material";
-import { Drawer, IconButton, List } from "@mui/material";
+import {
+  Drawer,
+  IconButton,
+  List,
+  Autocomplete,
+  Checkbox,
+  TextField,
+} from "@mui/material";
 import { useTheme } from "@mui/material";
 import { withRouter, Router } from "react-router-dom";
 import classNames from "classnames";
@@ -22,6 +29,7 @@ import { userContext } from "store/store";
 import { useContext } from "react";
 import { toJS } from "mobx";
 import { observer } from "mobx-react";
+import UseAutocomplete from "../Autocomplete/UseAutocomplete";
 
 function SidebarComponent({ location }) {
   let userLogin = useContext(userContext);
@@ -89,12 +97,20 @@ function SidebarComponent({ location }) {
           />
         </IconButton>
       </div>
+      {isSidebarOpenedWrapper ? (
+        <div className={classes.autocomplete}>
+          <UseAutocomplete />
+        </div>
+      ) : (
+        ""
+      )}
+
       <List
         className={classes.sidebarList}
         classes={{ padding: classes.padding }}
       >
-        {userLogin.userLogin.webPermission.moduleModel
-          ? userLogin.userLogin.webPermission.moduleModel.map((link, key) => (
+        {userLogin.userLogin.webPermission.menuModel
+          ? userLogin.userLogin.webPermission.menuModel.map((link, key) => (
               <SidebarLink
                 key={key}
                 location={location}

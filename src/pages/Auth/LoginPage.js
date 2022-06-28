@@ -7,14 +7,12 @@ import {
   Button,
   Grid,
   InputAdornment,
-  MenuItem,
   Typography,
   makeStyles,
   Paper,
   OutlinedInput,
   FormControl,
   IconButton,
-  Select,
 } from "@material-ui/core";
 import CustomSelect from "components/Core/Select/CustomSelect";
 import Visibility from "components/Core/Icon/Visibility";
@@ -107,7 +105,6 @@ const LoginPage = () => {
     resolver: yupResolver(validationSchema),
   });
   const company = useContext(userContext);
-
   //======================hidden show password==================//
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
